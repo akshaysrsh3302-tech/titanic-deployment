@@ -3,38 +3,89 @@
 <head>
     <title>Titanic Survival Predictor</title>
     <style>
-        body { font-family: Arial; margin: 40px; }
-        input, select { margin: 10px 0; padding: 8px; width: 300px; }
-        button { padding: 10px 20px; background: #007bff; color: white; border: none; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background-color: #f4f4f4;
+        }
+        h1 { color: #2c3e50; }
+        form { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { 
+            width: 100%; 
+            padding: 8px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px;
+        }
+        button { 
+            padding: 12px 20px; 
+            background: #e74c3c; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background: #c0392b; }
+        .result { 
+            margin-top: 30px; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
     <h1>🚢 Titanic Survival Predictor</h1>
     
     <form method="POST">
-        Pclass (1,2,3): <input type="number" name="Pclass" min="1" max="3" value="3"><br>
-        Sex: 
-        <select name="Sex">
+        <label>Pclass (1 = First, 2 = Second, 3 = Third):</label>
+        <input type="number" name="Pclass" min="1" max="3" value="3" required><br>
+
+        <label>Sex:</label>
+        <select name="Sex" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select><br>
-        Age: <input type="number" name="Age" step="0.1" value="25"><br>
-        SibSp: <input type="number" name="SibSp" value="0"><br>
-        Parch: <input type="number" name="Parch" value="0"><br>
-        Fare: <input type="number" name="Fare" step="0.01" value="10"><br>
-        Embarked: 
-        <select name="Embarked">
-            <option value="S">S (Southampton)</option>
-            <option value="C">C (Cherbourg)</option>
-            <option value="Q">Q (Queenstown)</option>
+
+        <label>Age:</label>
+        <input type="number" name="Age" step="0.1" value="25" required><br>
+
+        <label>SibSp (Siblings + Spouse aboard):</label>
+        <input type="number" name="SibSp" value="0" required><br>
+
+        <label>Parch (Parents + Children aboard):</label>
+        <input type="number" name="Parch" value="0" required><br>
+
+        <label>Fare (Ticket Price):</label>
+        <input type="number" name="Fare" step="0.01" value="10" required><br>
+
+        <label>Embarked Port:</label>
+        <select name="Embarked" required>
+            <option value="S">S - Southampton</option>
+            <option value="C">C - Cherbourg</option>
+            <option value="Q">Q - Queenstown</option>
         </select><br>
-        Title (Mr, Mrs, Miss, Master, Rare): <input type="text" name="Title" value="Mr"><br><br>
-        <button type="submit">Predict if they Survived</button>
+
+        <label>Title (Mr, Mrs, Miss, Master, Rare):</label>
+        <input type="text" name="Title" value="Mr" required><br><br>
+
+        <button type="submit">Predict Survival</button>
     </form>
 
     {% if prediction %}
-        <h2 style="color: green;">{{ prediction }}</h2>
+    <div class="result">
+        <h2>{{ prediction }}</h2>
         <p><strong>Survival Probability:</strong> {{ probability }}%</p>
+    </div>
     {% endif %}
 </body>
 </html>
