@@ -1,0 +1,7 @@
+Model Selection Summary
+
+After training and evaluating two models — Random Forest and XGBoost — on the Titanic dataset, I decided to go with the Random Forest Classifier as the final model.
+Both models performed reasonably well, but Random Forest edged out XGBoost with a test accuracy of 82.12% compared to 78.89%. More importantly, it showed a better balance between precision and recall. I noticed that XGBoost was slightly overfitting on this relatively small dataset, while Random Forest felt more stable and consistent.
+What I really liked about Random Forest is how interpretable the feature importance scores were. It clearly highlighted that Sex, Title (extracted from Name), Pclass, and Fare were the strongest predictors of survival — which actually makes a lot of sense from a historical and domain perspective. Women and children, along with passengers from higher classes, had significantly better chances, and the model captured this pattern very well.
+I also appreciated that Random Forest doesn’t require heavy hyperparameter tuning to give good results, which made it more practical for this task. While XGBoost is powerful, it felt a bit overkill for this dataset and needed more careful tuning to avoid overfitting.
+Overall, I chose Random Forest because it offered the best combination of performance, stability, and interpretability for this problem. The final model has been saved as titanic_survival_model.pkl for deployment and future use.
