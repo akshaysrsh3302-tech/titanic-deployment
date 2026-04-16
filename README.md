@@ -56,3 +56,22 @@ Try it out by entering passenger details and getting instant survival prediction
    ```bash
    git clone https://github.com/YOUR-USERNAME/titanic-deployment.git
    cd titanic-deployment
+
+
+##🌐 Deployment on Render
+This project is successfully deployed on Render.com (Free tier).
+Deployment Settings Used:
+
+Runtime: Python
+Build Command: pip install -r requirements.txt
+Start Command: gunicorn app:app
+
+The app wakes up automatically when you visit the link (may take 30–60 seconds on free tier due to cold start).
+
+##📊 Model Performance
+
+Best Model: Random Forest
+Test Accuracy: ~82%
+Key Features: Sex, Title, Pclass, Fare, Age
+
+The model correctly captures historical patterns — women and children in higher classes had significantly better survival rates.
