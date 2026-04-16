@@ -1,47 +1,23 @@
 # Titanic Survival Predictor
 
-A complete Machine Learning web application that predicts whether a passenger would have survived the Titanic disaster. The model is trained on the classic Titanic dataset and deployed as an interactive web app.
+A Machine Learning web application that predicts whether a passenger would have survived the Titanic disaster based on features like gender, age, passenger class, fare, title, and family size.
+
+The model is built using Random Forest and deployed as an interactive web app on Render.com.
 
 ---
 
 ## 🚀 Live Demo
 
-**🔗 Live URL:** https://titanic-survival-tvyy.onrender.com
-
-Enter passenger details and get instant survival predictions!
+**Live URL:** [https://titanic-survival-tvyy.onrender.com]
 
 ---
 
 ## ✨ Features
 
-- Predict survival chances based on real historical features
-- Clean and easy-to-use web interface
-- Shows survival prediction along with probability percentage
-- Fully deployed and accessible online
-
----
-
-## 🛠️ Tech Stack
-
-- **Machine Learning**: Scikit-learn (Random Forest), Pandas, NumPy
-- **Backend**: FastAPI / Flask
-- **Frontend**: HTML + CSS (Jinja2 templates)
-- **Deployment**: Render.com
-- **Model Saving**: Joblib
-
----
-
-## 🌐 Deployment on Render
-
-This project is successfully deployed on **Render.com** (Free tier).
-
-### Deployment Settings Used:
-
-- **Runtime**: Python  
-- **Build Command**: `pip install -r requirements.txt`  
-- **Start Command**: `gunicorn app:app`
-
-> **Note**: On the free tier, the app may take 30–60 seconds to wake up from sleep (cold start) when you first visit the link.
+- Easy-to-use web form for passenger details
+- Instant survival prediction with probability percentage
+- Clean and responsive interface
+- Smart feature engineering (Title, Family Size, Has Cabin, etc.)
 
 ---
 
@@ -51,18 +27,41 @@ This project is successfully deployed on **Render.com** (Free tier).
 - **Test Accuracy**: ~82%  
 - **Key Features**: Sex, Title, Pclass, Fare, Age  
 
-The model correctly captures historical patterns — women and children in higher classes had significantly better survival rates.
+The model correctly reflects historical patterns — women, children, and higher-class passengers had much better survival chances.
+
+---
+
+## 🌐 Deployment on Render
+
+This project is successfully deployed on **Render.com** (Free Tier).
+
+### Deployment Settings Used:
+- **Runtime**: Python  
+- **Build Command**: `pip install -r requirements.txt`  
+- **Start Command**: `gunicorn app:app`
+
+> **Note**: On free tier, the app may take 30–60 seconds to wake up (cold start) after inactivity.
 
 ---
 
 ## 🚀 How to Run Locally
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.9 or higher
 
 ### Steps
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/YOUR-USERNAME/titanic-deployment.git
+   git clone https://github.com/akshaysrsh3302-tech/titanic-deployment.git
    cd titanic-deployment
+
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+
+3. Run the application
+   ```bash
+   python app.py
+
+4. Open your browser and go to http://127.0.0.1:5000
